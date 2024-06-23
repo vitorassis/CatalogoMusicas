@@ -91,10 +91,13 @@
             // 
             // dgvTons
             // 
+            dgvTons.AllowUserToAddRows = false;
+            dgvTons.AllowUserToDeleteRows = false;
             dgvTons.AutoGenerateColumns = false;
             dgvTons.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTons.Columns.AddRange(new DataGridViewColumn[] { Id, tonalidadeDataGridViewTextBoxColumn });
             dgvTons.DataSource = tomBindingSource;
+            dgvTons.EditMode = DataGridViewEditMode.EditProgrammatically;
             dgvTons.Location = new Point(24, 192);
             dgvTons.Name = "dgvTons";
             dgvTons.Size = new Size(377, 136);

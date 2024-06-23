@@ -39,6 +39,7 @@
             musicaBindingSource = new BindingSource(components);
             btNova = new Button();
             btEditar = new Button();
+            btExcluir = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvMusicas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)musicaBindingSource).BeginInit();
             SuspendLayout();
@@ -71,10 +72,13 @@
             // 
             // dgvMusicas
             // 
+            dgvMusicas.AllowUserToAddRows = false;
+            dgvMusicas.AllowUserToDeleteRows = false;
             dgvMusicas.AutoGenerateColumns = false;
             dgvMusicas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvMusicas.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, indiceDataGridViewTextBoxColumn });
             dgvMusicas.DataSource = musicaBindingSource;
+            dgvMusicas.EditMode = DataGridViewEditMode.EditProgrammatically;
             dgvMusicas.Location = new Point(23, 57);
             dgvMusicas.Name = "dgvMusicas";
             dgvMusicas.Size = new Size(765, 343);
@@ -86,21 +90,18 @@
             idDataGridViewTextBoxColumn.DataPropertyName = "Id";
             idDataGridViewTextBoxColumn.HeaderText = "Id";
             idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nameDataGridViewTextBoxColumn
             // 
             nameDataGridViewTextBoxColumn.DataPropertyName = "Nome";
             nameDataGridViewTextBoxColumn.HeaderText = "Nome";
             nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // indiceDataGridViewTextBoxColumn
             // 
             indiceDataGridViewTextBoxColumn.DataPropertyName = "Indice";
             indiceDataGridViewTextBoxColumn.HeaderText = "Índice";
             indiceDataGridViewTextBoxColumn.Name = "indiceDataGridViewTextBoxColumn";
-            indiceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // musicaBindingSource
             // 
@@ -127,11 +128,23 @@
             btEditar.UseVisualStyleBackColor = true;
             btEditar.Click += btEditar_Click;
             // 
+            // btExcluir
+            // 
+            btExcluir.Enabled = false;
+            btExcluir.Location = new Point(661, 417);
+            btExcluir.Name = "btExcluir";
+            btExcluir.Size = new Size(127, 23);
+            btExcluir.TabIndex = 6;
+            btExcluir.Text = "Excluir Música";
+            btExcluir.UseVisualStyleBackColor = true;
+            btExcluir.Click += btExcluir_Click;
+            // 
             // frmMusicas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btExcluir);
             Controls.Add(btEditar);
             Controls.Add(btNova);
             Controls.Add(dgvMusicas);
@@ -160,5 +173,6 @@
         private DataGridViewTextBoxColumn indiceDataGridViewTextBoxColumn;
         private Button btNova;
         private Button btEditar;
+        private Button btExcluir;
     }
 }

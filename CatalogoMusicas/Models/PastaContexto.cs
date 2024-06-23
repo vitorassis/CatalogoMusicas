@@ -22,7 +22,7 @@ namespace CatalogoMusicas.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Pasta>().HasData(new Pasta { Id = 1, Nome = "Igreja"});
+            //modelBuilder.Entity<Pasta>().HasData(new Pasta { Id = 1, Nome = "Igreja"});
         }
     }
 }

@@ -55,6 +55,7 @@ namespace CatalogoMusicas
         private void dgvMusicas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btEditar.Enabled = true;
+            btExcluir.Enabled = true;
             int linha = dgvMusicas.SelectedCells[0].RowIndex;
             idSelecionado = (int)dgvMusicas.Rows[linha].Cells[0].Value;
         }
@@ -99,6 +100,27 @@ namespace CatalogoMusicas
             {
                 // Handle errors appropriately
                 MessageBox.Show($"Error fetching musicas: {ex.Message}");
+            }
+        }
+
+        private void btExcluir_Click(object sender, EventArgs e)
+        {
+            Musica? musica = dbContexto?.Musicas.Where(m => m.Id == idSelecionado).First();
+            if (musica != null)
+            {
+                DialogResult r = MessageBox.Show($"Deseja mesmo excluir a música {musica.Nome.ToUpper()}?", "Catálogo - Confirmação", MessageBoxButtons.YesNo);
+                if (r == DialogResult.Yes)
+                {
+                    dbContexto?.Musicas.Remove(musica);
+                    dbContexto?.SaveChanges();
+
+                    MessageBox.Show("Sucesso");
+                    Atualizar();
+
+                    idSelecionado = 0;
+                    btEditar.Enabled = false;
+                    btExcluir.Enabled = false;
+                }
             }
         }
     }

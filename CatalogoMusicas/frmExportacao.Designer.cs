@@ -30,26 +30,45 @@
         {
             components = new System.ComponentModel.Container();
             dgvPastas = new DataGridView();
-            label1 = new Label();
-            btExportar = new Button();
-            pastaBindingSource = new BindingSource(components);
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             nomeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            pastaBindingSource = new BindingSource(components);
+            label1 = new Label();
+            btExportar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvPastas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pastaBindingSource).BeginInit();
             SuspendLayout();
             // 
             // dgvPastas
             // 
+            dgvPastas.AllowUserToAddRows = false;
+            dgvPastas.AllowUserToDeleteRows = false;
             dgvPastas.AutoGenerateColumns = false;
             dgvPastas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPastas.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, nomeDataGridViewTextBoxColumn });
             dgvPastas.DataSource = pastaBindingSource;
+            dgvPastas.EditMode = DataGridViewEditMode.EditProgrammatically;
             dgvPastas.Location = new Point(30, 56);
             dgvPastas.Name = "dgvPastas";
             dgvPastas.Size = new Size(387, 329);
             dgvPastas.TabIndex = 0;
             dgvPastas.CellClick += dataGridView1_CellClick;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // nomeDataGridViewTextBoxColumn
+            // 
+            nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
+            nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
+            nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            // 
+            // pastaBindingSource
+            // 
+            pastaBindingSource.DataSource = typeof(Models.Pasta);
             // 
             // label1
             // 
@@ -70,22 +89,6 @@
             btExportar.Text = "Exportar PDF";
             btExportar.UseVisualStyleBackColor = true;
             btExportar.Click += btExportar_Click;
-            // 
-            // pastaBindingSource
-            // 
-            pastaBindingSource.DataSource = typeof(Models.Pasta);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // nomeDataGridViewTextBoxColumn
-            // 
-            nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
-            nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
-            nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
             // 
             // frmExportacao
             // 

@@ -102,6 +102,9 @@ namespace CatalogoMusicas
                     this.dbContexto?.SaveChanges();
 
                     RecarregarTons();
+
+                    idSelecionado = 0;
+                    btExcluirTom.Enabled = false;
                 }
             }
         }
