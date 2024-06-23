@@ -37,12 +37,11 @@ namespace CatalogoMusicas
         {
             PastaContexto db = new PastaContexto();
             Pasta pasta = db.Pastas.Where(p => p.Id == idSelecionado).First();
-            List<Musica> musicas = db.Musicas.Where(m => m.PastaId == idSelecionado).OrderBy(m => m.Nome).ToList<Musica>();
-
+            
             if (pasta != null)
             {
                 string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"Pasta - {pasta.Nome}.pdf");
-                PdfExporter.ExportMusicalIndex(filePath, pasta, musicas);
+                PdfExporter.ExportMusicalIndex(filePath, pasta);
             }
 
             db.Dispose();

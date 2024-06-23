@@ -11,6 +11,6 @@ namespace CatalogoMusicas.Models
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public ObservableCollectionListSource<Musica> Musicas { get; set; } = new(); 
+        public virtual List<Musica> Musicas { get; set; } = new(); 
     }
 }

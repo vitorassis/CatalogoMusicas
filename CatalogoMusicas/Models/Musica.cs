@@ -13,6 +13,6 @@ namespace CatalogoMusicas.Models
         public string Nome { get; set; }
         public int Indice { get; set; }
         public int PastaId { get; set; }
-        public virtual ObservableCollectionListSource<Tom> Tons { get; set; }
+        public virtual List<Tom> Tons { get; set; } = new List<Tom>();
     }
 }

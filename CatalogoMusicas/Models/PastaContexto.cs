@@ -10,13 +10,13 @@ namespace CatalogoMusicas.Models
     public class PastaContexto : DbContext
     {
         //public PastaContexto(DbContextOptions<PastaContexto> options) : base(options) { }
-
         public DbSet<Pasta> Pastas { get; set; }
         public DbSet<Musica> Musicas { get; set; }
         public DbSet<Tom> Tons { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.UseLazyLoadingProxies();
             optionsBuilder.UseSqlite("Data Source=pastas.db");
         }
 
