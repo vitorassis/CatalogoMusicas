@@ -1,0 +1,45 @@
+{
+  "expo": {
+    "name": "Catálogo de Músicas",
+    "slug": "Mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.vitorassis.catalogomusicas",
+      "versionCode": 1,
+      "permissions": [
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-sqlite"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "76be8971-49a9-432f-81d2-8eff73dbca4c"
+      }
+    },
+    "owner": "vitorassis",
+    "updates": {
+      "url": "https://u.expo.dev/76be8971-49a9-432f-81d2-8eff73dbca4c"
+    }
+  }
+}
